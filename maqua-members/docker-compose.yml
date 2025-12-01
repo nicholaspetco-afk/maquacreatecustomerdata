@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  members:
+    build: .
+    container_name: maqua-members
+    restart: unless-stopped
+    ports:
+      - "4015:4015"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_DEBUG=0
+      - TZ=Asia/Taipei
+    # 如需覆蓋配置或保留日誌，可掛載對應檔案/目錄
+    # volumes:
+    #   - ./flask.log:/app/flask.log
